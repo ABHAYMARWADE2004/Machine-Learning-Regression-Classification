@@ -1,8 +1,8 @@
 # Machine Learning Regression & Classification Models
 
-A Beginner-Friendly Collection Of **Machine Learning Projects Implemented Using Python And Scikit-learn**, Covering Regression And Classification Techniques Through Practical Prediction Problems.
+A Beginner-Friendly Collection Of **Machine Learning Projects Implemented Using Python And Scikit-learn** Covering Regression And Classification Techniques Through Practical Prediction Problems.
 
-This repository Demonstrates The Fundamentals of Supervised Machine Learning, Including Data Preparation, Model Training, Prediction, Visualization And Evaluation.
+This Repository Demonstrates The Fundamentals Of Supervised Machine Learning, Including Data Preparation, Model Training, Prediction, Visualization And Evaluation.
 
 ## 📌 Models Covered
 
@@ -40,8 +40,8 @@ This repository Demonstrates The Fundamentals of Supervised Machine Learning, In
 * Learn The Difference Between Regression And Classification.
 * Implement Different Machine Learning Models Using Scikit-learn.
 * Understand The Process Of Model Training And Prediction.
-* Practice Applying Machine Learning To Practical Datasets
-* Build a Foundation For More Advanced Machine Learning Projects
+* Practice Applying Machine Learning To Practical Datasets.
+* Build a Foundation For More Advanced Machine Learning Projects.
 
 ## 📁 Repository Structure
 
