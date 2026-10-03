@@ -16,11 +16,28 @@ All scores are measured on **unseen test data** (80% train, 20% test, `random_st
 | Polynomial Regression | Salary from experience (curved fit) | R² 0.91, average error Rs. 37,635 |
 | Multiple Regression | Salary from experience, education, skills | R² 0.93, average error Rs. 34,269 |
 | Logistic Regression | Pass or fail from study hours, attendance, previous score | Accuracy 88%, precision 100%, recall 74% |
+| KNN | Same pass/fail task | Accuracy 87%, precision 91%, recall 78% |
+| Decision Tree | Same pass/fail task | Accuracy 78% (overfits when grown deep) |
+| Random Forest | Same pass/fail task | Accuracy 87%, precision 95%, recall 74% |
+
+**Model comparison** (5-fold cross-validation on all 300 students):
+
+| Model | CV accuracy |
+|-------|-------------|
+| Random Forest | 84.7% |
+| Logistic Regression | 84.0% |
+| Naive Bayes | 83.7% |
+| KNN (K=15) | 83.3% |
+| SVM (RBF) | 83.3% |
+| Decision Tree (depth 5) | 83.0% |
 
 **What the results show:**
 - A curve fits salary growth better than a straight line (R² 0.85 to 0.91).
 - Adding education and skills improves the model further (R² 0.93), and each feature's contribution can be read from its coefficient.
-- The classification model never wrongly predicts a pass, but it misses about a quarter of the students who actually passed.
+- For KNN, feature scaling matters a lot: accuracy rose from 72% to 88% just by scaling.
+- A single decision tree overfits when it grows deep, and a random forest of many trees fixes this (78% to 87%).
+- All six classifiers land within about 2 points of each other, which is smaller than the fold-to-fold variation, so **no model is clearly best**. When models tie, the simpler one (logistic regression) is the better choice.
+- Caveat: the pass/fail data was generated from a logistic formula, so logistic regression naturally fits it well. On real data the ranking could differ.
 
 ## Notebooks
 
@@ -30,6 +47,10 @@ All scores are measured on **unseen test data** (80% train, 20% test, `random_st
 | 2 | [Multiple Regression](notebooks/regression/02_multiple_regression_salary.ipynb) | Regression | Correlation heatmap, several features, actual vs predicted |
 | 3 | [Polynomial Regression](notebooks/regression/03_polynomial_regression_salary.ipynb) | Regression | Curved fits, choosing the degree, overfitting check |
 | 4 | [Logistic Regression](notebooks/classification/01_logistic_regression_pass_fail.ipynb) | Classification | Sigmoid curve, confusion matrix, precision, recall, odds ratios |
+| 5 | [KNN](notebooks/classification/02_knn_pass_fail.ipynb) | Classification | Feature scaling, choosing K with cross-validation |
+| 6 | [Decision Tree](notebooks/classification/03_decision_tree_pass_fail.ipynb) | Classification | Reading a tree, overfitting, choosing the depth, feature importance |
+| 7 | [Random Forest](notebooks/classification/04_random_forest_pass_fail.ipynb) | Classification | Ensembles, number of trees, forest vs single tree |
+| 8 | [Model Comparison](notebooks/classification/05_model_comparison.ipynb) | Classification | Six models compared with cross-validation (incl. SVM and Naive Bayes) |
 
 ## Datasets
 
@@ -79,7 +100,11 @@ Machine-Learning-Regression-Classification/
 │   │   ├── 02_multiple_regression_salary.ipynb
 │   │   └── 03_polynomial_regression_salary.ipynb
 │   └── classification/
-│       └── 01_logistic_regression_pass_fail.ipynb
+│       ├── 01_logistic_regression_pass_fail.ipynb
+│       ├── 02_knn_pass_fail.ipynb
+│       ├── 03_decision_tree_pass_fail.ipynb
+│       ├── 04_random_forest_pass_fail.ipynb
+│       └── 05_model_comparison.ipynb
 ├── requirements.txt
 └── README.md
 ```
@@ -94,7 +119,7 @@ Python · NumPy · Pandas · Matplotlib · Scikit-learn · Jupyter Notebook
 
 ## Skills Demonstrated
 
-Supervised learning · Regression · Classification · Model evaluation (R², MAE, RMSE, confusion matrix, precision, recall) · Overfitting checks · Data visualization
+Supervised learning · Regression · Classification · Model evaluation (R², MAE, RMSE, confusion matrix, precision, recall) · Cross-validation · Hyperparameter selection · Ensemble methods · Overfitting checks · Data visualization
 
 ## Author
 
